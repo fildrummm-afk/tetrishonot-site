@@ -383,6 +383,8 @@
       color: #fff;
     }
     .disc-item:hover .disc-overlay { opacity: 1; }
+    .disc-item.active { outline: 2px solid var(--neon); outline-offset: 2px; transform: translateY(-4px); }
+    .disc-item.active .disc-cover { filter: grayscale(0%); }
 
     /* ─── VIDEO ─── */
     #video { background: transparent; }
@@ -723,148 +725,103 @@
 
   <!-- Spotify плеер — альбом -->
   <div style="margin-bottom:48px;">
-    <iframe src="https://open.spotify.com/embed/album/5bS7UhYTkqWmqksuhT4anV" width="100%" height="152" frameborder="0" allowtransparency="true" allow="encrypted-media" style="border-radius:8px;"></iframe>
+    <iframe id="spotify-player" src="https://open.spotify.com/embed/album/5bS7UhYTkqWmqksuhT4anV" width="100%" height="152" frameborder="0" allowtransparency="true" allow="encrypted-media" style="border-radius:8px;"></iframe>
   </div>
 
   <div class="discography-grid">
 
     <!-- СИНГЛЫ 2026 -->
-    <a class="disc-item" href="https://open.spotify.com/album/4HPymB4yVFbQc74kUX7dEC" target="_blank">
+    <a class="disc-item" href="#" data-album="4HPymB4yVFbQc74kUX7dEC" onclick="playAlbum(this);return false;">
       <img class="disc-cover" src="https://i.scdn.co/image/ab67616d0000b273d61fb88ff2e2b6b60badd2ca" alt="Рог Мессии" />
-      <div class="disc-info">
-        <div class="disc-title">Рог Мессии</div>
-        <div class="disc-year">2026 · Сингл</div>
-      </div>
+      <div class="disc-info"><div class="disc-title">Рог Мессии</div><div class="disc-year">2026 · Сингл</div></div>
       <div class="disc-overlay">Слушать →</div>
     </a>
 
-    <a class="disc-item" href="https://open.spotify.com/album/0jtRWWjb0VGxPtvil5HpSH" target="_blank">
+    <a class="disc-item" href="#" data-album="0jtRWWjb0VGxPtvil5HpSH" onclick="playAlbum(this);return false;">
       <img class="disc-cover" src="https://i.scdn.co/image/ab67616d0000b273a9d4263b8b4487da7299e306" alt="И хлынет кровь..." />
-      <div class="disc-info">
-        <div class="disc-title">И хлынет кровь...</div>
-        <div class="disc-year">2026 · Сингл</div>
-      </div>
+      <div class="disc-info"><div class="disc-title">И хлынет кровь...</div><div class="disc-year">2026 · Сингл</div></div>
       <div class="disc-overlay">Слушать →</div>
     </a>
 
-    <a class="disc-item" href="https://open.spotify.com/album/5NEl9MO4oeIYdlPWad5zbC" target="_blank">
+    <a class="disc-item" href="#" data-album="5NEl9MO4oeIYdlPWad5zbC" onclick="playAlbum(this);return false;">
       <img class="disc-cover" src="https://i.scdn.co/image/ab67616d0000b273c7b9c436265ec7739855a482" alt="Прахом стать" />
-      <div class="disc-info">
-        <div class="disc-title">Прахом стать</div>
-        <div class="disc-year">2026 · Сингл</div>
-      </div>
+      <div class="disc-info"><div class="disc-title">Прахом стать</div><div class="disc-year">2026 · Сингл</div></div>
       <div class="disc-overlay">Слушать →</div>
     </a>
 
     <!-- СИНГЛЫ 2025 -->
-    <a class="disc-item" href="https://open.spotify.com/album/0sQRn4t4tjcSotMTVbxJqr" target="_blank">
+    <a class="disc-item" href="#" data-album="0sQRn4t4tjcSotMTVbxJqr" onclick="playAlbum(this);return false;">
       <img class="disc-cover" src="https://i.scdn.co/image/ab67616d0000b27382b5a7f18bf8ede4016c16d3" alt="Доспехи эгоизма" />
-      <div class="disc-info">
-        <div class="disc-title">Доспехи эгоизма</div>
-        <div class="disc-year">2025 · Сингл</div>
-      </div>
+      <div class="disc-info"><div class="disc-title">Доспехи эгоизма</div><div class="disc-year">2025 · Сингл</div></div>
       <div class="disc-overlay">Слушать →</div>
     </a>
 
-    <a class="disc-item" href="https://open.spotify.com/album/2bwBmv7xeJtrnm3QmsjkvC" target="_blank">
+    <a class="disc-item" href="#" data-album="2bwBmv7xeJtrnm3QmsjkvC" onclick="playAlbum(this);return false;">
       <img class="disc-cover" src="https://i.scdn.co/image/ab67616d0000b273e1166c51c018d643aa1a46bd" alt="Контент" />
-      <div class="disc-info">
-        <div class="disc-title">Контент</div>
-        <div class="disc-year">2025 · Сингл</div>
-      </div>
+      <div class="disc-info"><div class="disc-title">Контент</div><div class="disc-year">2025 · Сингл</div></div>
       <div class="disc-overlay">Слушать →</div>
     </a>
 
-    <a class="disc-item" href="https://open.spotify.com/album/0y8pbFpZlg1f0ANJgy6i76" target="_blank">
+    <a class="disc-item" href="#" data-album="0y8pbFpZlg1f0ANJgy6i76" onclick="playAlbum(this);return false;">
       <img class="disc-cover" src="https://i.scdn.co/image/ab67616d0000b27315e36a9e3128405534623e29" alt="Милорд не дремлет" />
-      <div class="disc-info">
-        <div class="disc-title">Милорд не дремлет</div>
-        <div class="disc-year">2025 · Сингл</div>
-      </div>
+      <div class="disc-info"><div class="disc-title">Милорд не дремлет</div><div class="disc-year">2025 · Сингл</div></div>
       <div class="disc-overlay">Слушать →</div>
     </a>
 
-    <a class="disc-item" href="https://open.spotify.com/album/2Crp1cMoS3IiKBL4KHzNKo" target="_blank">
+    <a class="disc-item" href="#" data-album="2Crp1cMoS3IiKBL4KHzNKo" onclick="playAlbum(this);return false;">
       <img class="disc-cover" src="https://i.scdn.co/image/ab67616d0000b273f12beee57e5787ad02b24189" alt="Преферанс" />
-      <div class="disc-info">
-        <div class="disc-title">Преферанс</div>
-        <div class="disc-year">2025 · Сингл</div>
-      </div>
+      <div class="disc-info"><div class="disc-title">Преферанс</div><div class="disc-year">2025 · Сингл</div></div>
       <div class="disc-overlay">Слушать →</div>
     </a>
 
-    <a class="disc-item" href="https://open.spotify.com/album/7C1nvyM9wPGUA5arPEmoac" target="_blank">
+    <a class="disc-item" href="#" data-album="7C1nvyM9wPGUA5arPEmoac" onclick="playAlbum(this);return false;">
       <img class="disc-cover" src="https://i.scdn.co/image/ab67616d0000b273e3d069a8fe5603cd7db68875" alt="СПРОСИ МЕНЯ" />
-      <div class="disc-info">
-        <div class="disc-title">СПРОСИ МЕНЯ</div>
-        <div class="disc-year">2025 · Сингл</div>
-      </div>
+      <div class="disc-info"><div class="disc-title">СПРОСИ МЕНЯ</div><div class="disc-year">2025 · Сингл</div></div>
       <div class="disc-overlay">Слушать →</div>
     </a>
 
     <!-- СИНГЛЫ 2024 -->
-    <a class="disc-item" href="https://open.spotify.com/album/66KF0hKxtmqSXUCP7c6fDA" target="_blank">
+    <a class="disc-item" href="#" data-album="66KF0hKxtmqSXUCP7c6fDA" onclick="playAlbum(this);return false;">
       <img class="disc-cover" src="https://i.scdn.co/image/ab67616d0000b273856ac40887e63e5dba1c7352" alt="#Неубили" />
-      <div class="disc-info">
-        <div class="disc-title">#Неубили</div>
-        <div class="disc-year">2024 · Сингл</div>
-      </div>
+      <div class="disc-info"><div class="disc-title">#Неубили</div><div class="disc-year">2024 · Сингл</div></div>
       <div class="disc-overlay">Слушать →</div>
     </a>
 
-    <a class="disc-item" href="https://open.spotify.com/album/6tna2URKHhrZlFasarOb2a" target="_blank">
+    <a class="disc-item" href="#" data-album="6tna2URKHhrZlFasarOb2a" onclick="playAlbum(this);return false;">
       <img class="disc-cover" src="https://i.scdn.co/image/ab67616d0000b273d4ecf0ef1297f46e90a47ceb" alt="А люди злые такие" />
-      <div class="disc-info">
-        <div class="disc-title">А люди злые такие</div>
-        <div class="disc-year">2024 · Сингл</div>
-      </div>
+      <div class="disc-info"><div class="disc-title">А люди злые такие</div><div class="disc-year">2024 · Сингл</div></div>
       <div class="disc-overlay">Слушать →</div>
     </a>
 
     <!-- СИНГЛЫ 2023 -->
-    <a class="disc-item" href="https://open.spotify.com/album/5N02UgOIMOoqw2nx325THW" target="_blank">
+    <a class="disc-item" href="#" data-album="5N02UgOIMOoqw2nx325THW" onclick="playAlbum(this);return false;">
       <img class="disc-cover" src="https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e026f0fa8efc70edb28ad2a66e1" alt="Министерство зла" />
-      <div class="disc-info">
-        <div class="disc-title">Министерство зла</div>
-        <div class="disc-year">2023 · Сингл</div>
-      </div>
+      <div class="disc-info"><div class="disc-title">Министерство зла</div><div class="disc-year">2023 · Сингл</div></div>
       <div class="disc-overlay">Слушать →</div>
     </a>
 
-    <a class="disc-item" href="https://open.spotify.com/album/0w6tLBjcY74a5vcf8ImgBA" target="_blank">
+    <a class="disc-item" href="#" data-album="0w6tLBjcY74a5vcf8ImgBA" onclick="playAlbum(this);return false;">
       <img class="disc-cover" src="https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02bfcab0b116727c279750cbd2" alt="Повидали" />
-      <div class="disc-info">
-        <div class="disc-title">Повидали</div>
-        <div class="disc-year">2023 · Сингл</div>
-      </div>
+      <div class="disc-info"><div class="disc-title">Повидали</div><div class="disc-year">2023 · Сингл</div></div>
       <div class="disc-overlay">Слушать →</div>
     </a>
 
-    <a class="disc-item" href="https://open.spotify.com/album/3APdbLopUzWcF8h6UO9zdS" target="_blank">
+    <a class="disc-item" href="#" data-album="3APdbLopUzWcF8h6UO9zdS" onclick="playAlbum(this);return false;">
       <img class="disc-cover" src="https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e0208a13b88042d4ab91d5f95ac" alt="Федералы" />
-      <div class="disc-info">
-        <div class="disc-title">Федералы</div>
-        <div class="disc-year">2023 · Сингл</div>
-      </div>
+      <div class="disc-info"><div class="disc-title">Федералы</div><div class="disc-year">2023 · Сингл</div></div>
       <div class="disc-overlay">Слушать →</div>
     </a>
 
-    <a class="disc-item" href="https://open.spotify.com/album/3hxOzJhncIvkkYafvwu5MR" target="_blank">
+    <a class="disc-item" href="#" data-album="3hxOzJhncIvkkYafvwu5MR" onclick="playAlbum(this);return false;">
       <img class="disc-cover" src="https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02e9e5f1e964058e268d28e7e0" alt="За одним столом" />
-      <div class="disc-info">
-        <div class="disc-title">За одним столом</div>
-        <div class="disc-year">2023 · Сингл</div>
-      </div>
+      <div class="disc-info"><div class="disc-title">За одним столом</div><div class="disc-year">2023 · Сингл</div></div>
       <div class="disc-overlay">Слушать →</div>
     </a>
 
     <!-- АЛЬБОМ 2022 -->
-    <a class="disc-item" href="https://open.spotify.com/album/5bS7UhYTkqWmqksuhT4anV" target="_blank">
+    <a class="disc-item" href="#" data-album="5bS7UhYTkqWmqksuhT4anV" onclick="playAlbum(this);return false;">
       <img class="disc-cover" src="https://i.scdn.co/image/ab67616d0000b2738c5e53cbada8cdc1947d8e8c" alt="Девять первых" />
-      <div class="disc-info">
-        <div class="disc-title">Девять первых</div>
-        <div class="disc-year">2022 · Альбом · 9 треков</div>
-      </div>
+      <div class="disc-info"><div class="disc-title">Девять первых</div><div class="disc-year">2022 · Альбом · 9 треков</div></div>
       <div class="disc-overlay">Слушать →</div>
     </a>
 
@@ -1030,6 +987,18 @@
   function handleSubmit(e) {
     e.preventDefault();
     alert('Спасибо! Ваше сообщение отправлено.\n\nДля настройки реальной отправки подключите форму к сервису (Formspree, Netlify Forms и т.д.)');
+  }
+
+  // Интерактивный Spotify-плеер
+  function playAlbum(el) {
+    var albumId = el.getAttribute('data-album');
+    var player = document.getElementById('spotify-player');
+    player.src = 'https://open.spotify.com/embed/album/' + albumId + '?utm_source=generator&theme=0';
+    player.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    document.querySelectorAll('.disc-item').forEach(function(item) {
+      item.classList.remove('active');
+    });
+    el.classList.add('active');
   }
 </script>
 
