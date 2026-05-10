@@ -1,0 +1,26 @@
+# Системные файлы macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Оригинальные фото (большие, для сайта используются photo1-9.jpg)
+IMG_*.JPG
+IMG_*.jpg
+
+# Photoshop файлы
+*.psd
+*.psb
+
+# Секреты и токены (никогда в Git!)
+.env
+.env.*
+*.token
+*.secret
+secrets.*
+config.local.*
+credentials.*
+
+# Временные файлы
+*.tmp
+*.log
+Thumbs.db
