@@ -110,13 +110,33 @@
     .hero-bg {
       position: absolute;
       inset: 0;
-      background:
-        linear-gradient(to bottom, rgba(10,10,10,0.1) 0%, rgba(10,10,10,0.55) 55%, rgba(10,10,10,1) 100%),
-        url('photo1.jpg') center 30%/cover no-repeat;
-      filter: grayscale(60%);
+      overflow: hidden;
+    }
+    .hero-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(10,10,10,0.0) 0%, rgba(10,10,10,0.0) 70%, rgba(10,10,10,1) 100%);
     }
 
-    .hero-content { position: relative; z-index: 2; }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      padding: 80px 0 80px;
+      height: 100%;
+      width: 100%;
+    }
 
     .hero-title {
       font-family: 'Oswald', sans-serif;
@@ -631,12 +651,15 @@
      HERO
 ════════════════════════════════════════════ -->
 <section id="home" style="padding:0; max-width:100%;">
-  <div class="hero-bg"></div>
+  <div class="hero-bg"><img src="poster 2.JPEG" alt="" /></div>
   <div class="hero-content">
-    <h1 class="hero-title">TET RISHONOT</h1>
-    <p class="hero-sub">Rock / Hard Rock &nbsp;·&nbsp; с 2022</p>
-    <a class="hero-btn" href="#music">Музыка</a>
-    <a class="hero-btn" href="https://www.youtube.com/channel/UCO9RXxVEbfmZ7fqOHflrTyA" target="_blank" style="margin-left:16px;">YouTube</a>
+    <div style="position:absolute; bottom:80px; display:flex; flex-direction:column; align-items:center; gap:16px;">
+      <p class="hero-sub">Rock / Hard Rock &nbsp;·&nbsp; с 2022</p>
+      <div>
+        <a class="hero-btn" href="#music">Музыка</a>
+        <a class="hero-btn" href="https://www.youtube.com/channel/UCO9RXxVEbfmZ7fqOHflrTyA" target="_blank" style="margin-left:16px;">YouTube</a>
+      </div>
+    </div>
   </div>
   <div class="scroll-hint">scroll</div>
 </section>
@@ -650,7 +673,7 @@
   <h2 class="section-title">Биография</h2>
 
   <div class="about-grid">
-    <img class="about-photo" src="photo4.jpg" alt="TET RISHONOT" onerror="this.src='photo1.jpg'" />
+    <img class="about-photo" src="photo4.jpg" alt="TET RISHONOT" />
 
     <div class="about-text">
       <p>
@@ -704,16 +727,6 @@
   </div>
 
   <div class="discography-grid">
-
-    <!-- АЛЬБОМ -->
-    <a class="disc-item" href="https://open.spotify.com/album/5bS7UhYTkqWmqksuhT4anV" target="_blank">
-      <img class="disc-cover" src="https://i.scdn.co/image/ab67616d0000b2738c5e53cbada8cdc1947d8e8c" alt="Девять первых" />
-      <div class="disc-info">
-        <div class="disc-title">Девять первых</div>
-        <div class="disc-year">2022 · Альбом · 9 треков</div>
-      </div>
-      <div class="disc-overlay">Слушать →</div>
-    </a>
 
     <!-- СИНГЛЫ 2026 -->
     <a class="disc-item" href="https://open.spotify.com/album/4HPymB4yVFbQc74kUX7dEC" target="_blank">
@@ -845,6 +858,16 @@
       <div class="disc-overlay">Слушать →</div>
     </a>
 
+    <!-- АЛЬБОМ 2022 -->
+    <a class="disc-item" href="https://open.spotify.com/album/5bS7UhYTkqWmqksuhT4anV" target="_blank">
+      <img class="disc-cover" src="https://i.scdn.co/image/ab67616d0000b2738c5e53cbada8cdc1947d8e8c" alt="Девять первых" />
+      <div class="disc-info">
+        <div class="disc-title">Девять первых</div>
+        <div class="disc-year">2022 · Альбом · 9 треков</div>
+      </div>
+      <div class="disc-overlay">Слушать →</div>
+    </a>
+
   </div>
 
   <div style="margin-top:40px; text-align:center;">
@@ -912,7 +935,6 @@
   <h2 class="section-title">Фото</h2>
 
   <div class="photo-grid">
-    <div class="photo-item"><img src="photo1.jpg" alt="TET RISHONOT" /></div>
     <div class="photo-item"><img src="photo2.jpg" alt="TET RISHONOT" /></div>
     <div class="photo-item"><img src="photo3.jpg" alt="TET RISHONOT" /></div>
     <div class="photo-item"><img src="photo4.jpg" alt="TET RISHONOT" /></div>
@@ -921,9 +943,6 @@
     <div class="photo-item"><img src="photo7.jpg" alt="TET RISHONOT" /></div>
     <div class="photo-item"><img src="photo8.jpg" alt="TET RISHONOT" /></div>
     <div class="photo-item"><img src="photo9.jpg" alt="TET RISHONOT" /></div>
-    <div class="photo-item" style="background:var(--bg3); display:flex; align-items:center; justify-content:center;">
-      <img src="logo.png" alt="TET RISHONOT logo" style="width:80%; filter:drop-shadow(0 0 20px rgba(255,255,255,0.4));" />
-    </div>
   </div>
 </div>
 </section>
