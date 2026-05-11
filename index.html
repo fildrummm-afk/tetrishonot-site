@@ -725,7 +725,7 @@
 
   <!-- Spotify плеер — альбом -->
   <div style="margin-bottom:48px;">
-    <iframe id="spotify-player" src="https://open.spotify.com/embed/album/5bS7UhYTkqWmqksuhT4anV" width="100%" height="152" frameborder="0" allowtransparency="true" allow="encrypted-media" style="border-radius:8px;"></iframe>
+    <iframe id="spotify-player" src="https://open.spotify.com/embed/album/5bS7UhYTkqWmqksuhT4anV?utm_source=generator&theme=0" width="100%" height="152" frameborder="0" allowtransparency="true" allow="autoplay; encrypted-media" style="border-radius:8px;"></iframe>
   </div>
 
   <div class="discography-grid">
@@ -993,7 +993,7 @@
   function playAlbum(el) {
     var albumId = el.getAttribute('data-album');
     var player = document.getElementById('spotify-player');
-    player.src = 'https://open.spotify.com/embed/album/' + albumId + '?utm_source=generator&theme=0';
+    player.src = 'https://open.spotify.com/embed/album/' + albumId + '?utm_source=generator&theme=0&autoplay=1';
     player.scrollIntoView({ behavior: 'smooth', block: 'center' });
     document.querySelectorAll('.disc-item').forEach(function(item) {
       item.classList.remove('active');
