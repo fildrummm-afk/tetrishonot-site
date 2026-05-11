@@ -991,9 +991,22 @@
   // Интерактивный Spotify-плеер
   function playAlbum(el) {
     var albumId = el.getAttribute('data-album');
-    var player = document.getElementById('spotify-player');
-    player.src = 'https://open.spotify.com/embed/album/' + albumId + '?utm_source=generator&theme=0&autoplay=1';
-    player.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    var container = document.getElementById('spotify-player').parentNode;
+
+    // Пересоздаём iframe — браузер воспринимает как новый элемент и разрешает автозапуск
+    var newIframe = document.createElement('iframe');
+    newIframe.id = 'spotify-player';
+    newIframe.src = 'https://open.spotify.com/embed/album/' + albumId + '?utm_source=generator&theme=0&autoplay=1';
+    newIframe.width = '100%';
+    newIframe.height = '152';
+    newIframe.frameBorder = '0';
+    newIframe.allow = 'autoplay; encrypted-media';
+    newIframe.style.borderRadius = '8px';
+
+    container.innerHTML = '';
+    container.appendChild(newIframe);
+
+    newIframe.scrollIntoView({ behavior: 'smooth', block: 'center' });
     document.querySelectorAll('.disc-item').forEach(function(item) {
       item.classList.remove('active');
     });
