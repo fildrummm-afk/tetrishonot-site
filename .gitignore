@@ -24,3 +24,6 @@ credentials.*
 *.tmp
 *.log
 Thumbs.db
+
+# Служебная папка Claude Code (локальная, не для репозитория)
+.claude/
