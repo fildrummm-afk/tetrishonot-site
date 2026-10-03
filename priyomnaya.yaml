@@ -8,7 +8,7 @@ vetka: master
 opisanie: >-
   Сайт музыкального проекта Тет Ришонот: одна страница index.html (разметка, стили и скрипты внутри),
   картинки лежат рядом. Публикуется GitHub Pages на домене из файла CNAME.
-mozhno_menyat: ['^index\.html$']
+mozhno_menyat: ['^index\.html$', '^img/[\w.-]+\.(jpg|jpeg|png|webp|gif)$']   # страница и новые картинки в img/
 proverka: staticheskij_sajt   # страница разбирается, блоки закрыты, все картинки на месте
 snimki: da                    # снимки «было/стало» — компьютер и телефон
 vykladka: git-push            # отправка в GitHub = сайт обновился
