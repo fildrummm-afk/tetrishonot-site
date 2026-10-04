@@ -626,6 +626,15 @@
       .contact-grid { grid-template-columns: 1fr; gap: 48px; }
 
       .hero-title { letter-spacing: 5px; }
+
+      /* на узком экране обложка целиком, чтобы надпись не обрезалась */
+      .hero-bg { display: flex; align-items: center; }
+      .hero-bg img {
+        height: auto;
+        margin-top: -20vh;
+        -webkit-mask-image: linear-gradient(to bottom, transparent, #000 18%, #000 82%, transparent);
+                mask-image: linear-gradient(to bottom, transparent, #000 18%, #000 82%, transparent);
+      }
     }
   </style>
 </head>
